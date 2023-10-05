@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+{% block stylecontent %}
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+
+        body {
+            background-color: skyblue;
+        }
+        h2 {
+            font-family: 'Slabo 27px';
+            border-bottom: 1px solid black;
+            font-weight: 900;
+        }
+
+    </style>
+{% endblock %}
+{% block bodycontent %}
+    <div class="container text-center">
+        Create New Account
+
+
+    <form class="container" action="register" method="post">
+        {% csrf_token %}
+        <section class="form-control">
+            <h4>Enter basic details</h4>
+            {{ form.as_p}}
+        </section>
+        <br>
+
+
+
+        <br>
+
+        <section>
+            <input type="checkbox" required>
+                <a href="#">Terms and Conditions</a>
+        </section>
+
+        <br>
+
+        <input type="submit" class="form-control btn btn-primary" value="Register" name="submit"
+        />
+
+    </form>
+    </div>
+    <br>
+{% endblock %}

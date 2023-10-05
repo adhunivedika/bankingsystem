@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block stylecontent %}
+<style xmlns="http://www.w3.org/1999/html">
+        @import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+
+        body {
+            background-color: skyblue;
+        }
+        h2 {
+            font-family: 'Slabo 27px';
+            border-bottom: 1px solid black;
+            font-weight: 900;
+        }
+
+    </style>
+{% endblock %}
+{% block bodycontent %}
+
+{% for field in form %}
+<div class="form-group">
+        {{field.label_tag}}
+
+            {{ field}}
+    {% if field.help_text %}
+    <small class="form-text text-muted">{{field.help_text}}</small>
+    {% endif %}
+{% endfor %}
+
+            <br>
+<button type="submit" class="btn btn-success">
+                <i class="fa fa-sign-in"></i>
+              <a href="{% url 'bankapp:demo' %}">Submit</a>
+            </button>
+
+
+         <button type="submit" class=" col text-right ">
+          <a href="{% url 'bankapp:demo' %}"> logout </a>
+
+              </button>
+        <br>
+
+
+
+    </form>
+    </div>
+
+
+    {% for msg in messages %}
+<h1>{{msg}}</h1>
+{% endfor %}
+</div>
+
+<a href="{% url 'bankapp:demo' %}">click here</a>
+{% endblock %}
+
